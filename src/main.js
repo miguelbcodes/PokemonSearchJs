@@ -23,25 +23,31 @@ function searchPokemon() {
       // Clear the current Pokemon searched, if it exists
       removeAllChildNodes(pokemonSectionEl);
 
-      // TODO: Create Pokemon Image Wrapper
+      // Create Pokemon Card
+      const pokemonCardEl = document.createElement("article");
+
+      // Create Pokemon Image Wrapper
       const pokemonImageWrapperEl = document.createElement("div");
 
-      // TODO: Append Pokemon Image to its wrapper
+      // Append Pokemon Image to its wrapper
       displayPokemonImage(pokemonImageWrapperEl, data);
 
-      // TODO: Append Pokemon Image Wrapper to Pokemon Section
-      pokemonSectionEl.appendChild(pokemonImageWrapperEl);
+      // Append Pokemon Image Wrapper to Pokemon Card
+      pokemonCardEl.appendChild(pokemonImageWrapperEl);
 
-      // TODO: Create Pokemon Info Wrapper
+      // Create Pokemon Info Wrapper
       const pokemonInfoWrapperEl = document.createElement("div");
 
-      // TODO: Append Pokemon Info to its wrapper
+      // Append Pokemon Info to its wrapper
       displayPokemonInfo(pokemonInfoWrapperEl, data);
 
-      // TODO: Append Pokemon Info Wrapper to Pokemon Section
-      pokemonSectionEl.appendChild(pokemonInfoWrapperEl);
+      // Append Pokemon Info Wrapper to Pokemon Card
+      pokemonCardEl.appendChild(pokemonInfoWrapperEl);
 
-      // TODO: Create a button and append it to Pokemon Section. The button shows the search
+      // Append Pokemon Card to Pokemon Section
+      pokemonSectionEl.appendChild(pokemonCardEl);
+
+      // Create a button and append it to Pokemon Section. The button shows the search
       showSearchButton(pokemonSectionEl, searchFormEl);
     });
 }
