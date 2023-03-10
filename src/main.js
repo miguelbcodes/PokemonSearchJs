@@ -126,6 +126,7 @@ function displayPokemonImage(parent, data) {
   // Add Pokemon Image attributes
   pokemonImageEl.src = data.sprites.front_default;
   pokemonImageEl.alt = data.name;
+  pokemonImageEl.crossOrigin = "anonymous";
   // Add Pokemon Image styles
   pokemonImageEl.classList.add("w-full", "drop-shadow-lg");
   // Appen Pokemon Image to Pokemon Section
