@@ -72,6 +72,9 @@ function searchPokemon() {
       // Get Pokemon Section
       const pokemonSectionEl = document.getElementById("pokemon-section");
 
+      // Clear Pokemon Section classes
+      pokemonSectionEl.classList = "";
+
       // Clear older Error Messages
       removeAllChildNodes(pokemonSectionEl);
 
