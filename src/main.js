@@ -118,6 +118,8 @@ function showSearchButton(parent, searchFormEl) {
   // Show the searchbar when clicked
   buttonEl.addEventListener("click", () => {
     toggleElementDisplay(searchFormEl);
+    // Delete the pokemon card
+    removeAllChildNodes(parent);
   });
 
   // Appen button to Pokemon Card
@@ -126,4 +128,10 @@ function showSearchButton(parent, searchFormEl) {
 
 function toggleElementDisplay(element) {
   element.classList.toggle("hidden");
+}
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
