@@ -20,6 +20,9 @@ function searchPokemon() {
       // Get Pokemon Card
       const pokemonCardEl = document.getElementById("pokemon-card");
 
+      // Show Pokemon Card
+      toggleElementDisplay(pokemonCardEl);
+
       // Clear the current Pokemon searched, if it exists
       removeAllChildNodes(pokemonCardEl);
 
@@ -120,6 +123,7 @@ function showSearchButton(parent, searchFormEl) {
     toggleElementDisplay(searchFormEl);
     // Delete the pokemon card
     removeAllChildNodes(parent);
+    toggleElementDisplay(parent);
   });
 
   // Appen button to Pokemon Card
