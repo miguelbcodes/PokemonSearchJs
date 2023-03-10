@@ -66,6 +66,20 @@ function searchPokemon() {
 
       // Create a button and append it to Pokemon Section. The button shows the search
       showSearchButton(pokemonSectionEl, searchFormEl);
+    })
+    .catch((error) => {
+      console.error(error);
+      // Get Pokemon Section
+      const pokemonSectionEl = document.getElementById("pokemon-section");
+
+      // Create Error Message Wrapper
+      const errorMessageEl = document.createElement("div");
+
+      // Create Error Message content
+      displayErrorMessage(errorMessageEl);
+
+      // Append Error Message wrapper to Pokemon Section
+      pokemonSectionEl.appendChild(errorMessageEl);
     });
 }
 
@@ -186,4 +200,19 @@ function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
+}
+
+function displayErrorMessage(parent) {
+  // Create Error Message text
+  const errorMessageTextEl = document.createElement("p");
+  // Add Message text
+  errorMessageTextEl.textContent = "Pokemon not found - check your connection and try again!";
+  parent.appendChild(errorMessageTextEl);
+
+  // Create Error Message Image
+  const errorMessageImageEl = document.createElement("img");
+  // Add Image attributes
+  errorMessageImageEl.src = "../assets/pokeball.webp";
+  errorMessageImageEl.alt = "Empty pokéball";
+  parent.appendChild(errorMessageImageEl);
 }
