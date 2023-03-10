@@ -74,12 +74,25 @@ function searchPokemon() {
 
       // Clear Pokemon Section classes
       pokemonSectionEl.classList = "";
+      // Add Pokemon Section styles
+      pokemonSectionEl.classList.add("flex", "flex-col", "items-center", "mt-8");
 
       // Clear older Error Messages
       removeAllChildNodes(pokemonSectionEl);
 
       // Create Error Message Wrapper
       const errorMessageEl = document.createElement("div");
+      // Add Error Message Wrapper styles
+      errorMessageEl.classList.add(
+        "flex",
+        "p-4",
+        "gap-4",
+        "bg-amber-100",
+        "rounded-md",
+        "items-center",
+        "border",
+        "border-amber-200"
+      );
 
       // Create Error Message content
       displayErrorMessage(errorMessageEl);
@@ -212,7 +225,9 @@ function displayErrorMessage(parent) {
   // Create Error Message text
   const errorMessageTextEl = document.createElement("p");
   // Add Message text
-  errorMessageTextEl.textContent = "Pokemon not found - check your connection and try again!";
+  errorMessageTextEl.textContent = "Pokemon not found - check your connection and typos!";
+  // Add Message text styles
+  errorMessageTextEl.classList.add("font-medium", "text-amber-800");
   parent.appendChild(errorMessageTextEl);
 
   // Create Error Message Image
@@ -220,5 +235,7 @@ function displayErrorMessage(parent) {
   // Add Image attributes
   errorMessageImageEl.src = "../assets/pokeball.webp";
   errorMessageImageEl.alt = "Empty pokéball";
+  // Add Images styles
+  errorMessageImageEl.classList.add("h-8", "order-first");
   parent.appendChild(errorMessageImageEl);
 }
