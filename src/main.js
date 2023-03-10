@@ -64,8 +64,19 @@ function searchPokemon() {
       // Append Pokemon Card to Pokemon Section
       pokemonSectionEl.appendChild(pokemonCardEl);
 
-      // Create a button and append it to Pokemon Section. The button shows the search
-      showSearchButton(pokemonSectionEl, searchFormEl);
+      // Create Buttons Wrapper
+      const buttonsWrapperEl = document.createElement("div");
+      // Add Buttons Wrapper styles
+      buttonsWrapperEl.classList.add("w-96", "flex", "gap-4", "items-center", "justify-center");
+
+      // Create a button and append it to Buttons Wrapper. The button shows the search
+      showSearchButton(buttonsWrapperEl, searchFormEl, randomPokemonButtonEl);
+
+      // Append the button that shows a random pokemon to Buttons Wrapper
+      buttonsWrapperEl.appendChild(randomPokemonButtonEl);
+
+      // Append Buttons Wrapper to Pokemon Section
+      pokemonSectionEl.appendChild(buttonsWrapperEl);
     })
     .catch((error) => {
       console.error(error);
@@ -175,7 +186,7 @@ function displayPokemonTypes(parent, data) {
   parent.appendChild(pokemonTypesEl);
 }
 
-function showSearchButton(parent, searchFormEl) {
+function showSearchButton(parent, searchFormEl, randomPokemonButtonEl) {
   // Create Button
   const buttonEl = document.createElement("button");
   // Add button text
@@ -203,8 +214,9 @@ function showSearchButton(parent, searchFormEl) {
   // Show the searchbar when clicked
   buttonEl.addEventListener("click", () => {
     toggleElementDisplay(searchFormEl);
+    searchFormEl.parentElement.appendChild(randomPokemonButtonEl);
     // Delete the Pokemon Section
-    removeAllChildNodes(parent);
+    removeAllChildNodes(parent.parentElement);
   });
 
   // Appen button to Pokemon Section
@@ -311,7 +323,18 @@ randomPokemonButtonEl.onclick = () => {
       // Append Pokemon Card to Pokemon Section
       pokemonSectionEl.appendChild(pokemonCardEl);
 
-      // Create a button and append it to Pokemon Section. The button shows the search
-      showSearchButton(pokemonSectionEl, searchFormEl);
+      // Create Buttons Wrapper
+      const buttonsWrapperEl = document.createElement("div");
+      // Add Buttons Wrapper styles
+      buttonsWrapperEl.classList.add("w-96", "flex", "gap-4", "items-center", "justify-center");
+
+      // Create a button and append it to Buttons Wrapper. The button shows the search
+      showSearchButton(buttonsWrapperEl, searchFormEl, randomPokemonButtonEl);
+
+      // Append the button that shows a random pokemon to Buttons Wrapper
+      buttonsWrapperEl.appendChild(randomPokemonButtonEl);
+
+      // Append Buttons Wrapper to Pokemon Section
+      pokemonSectionEl.appendChild(buttonsWrapperEl);
     });
 };
