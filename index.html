@@ -11,7 +11,7 @@
     <main class="container mx-auto h-screen">
       <section class="mx-auto w-96 p-4">
         <img class="2-96" src="./assets/pokemon-logo.webp" alt="" />
-        <form onsubmit="searchPokemon();return false" class="flex flex-col">
+        <form id="search-form" onsubmit="searchPokemon();return false" class="flex flex-col">
           <label for="pokemon-search" class="mt-4 block font-semibold text-slate-700">Pokémon Name</label>
           <input
             type="text"

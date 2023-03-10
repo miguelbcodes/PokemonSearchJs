@@ -11,9 +11,11 @@ function searchPokemon() {
       return response.json();
     })
     .then((data) => {
-      // TODO: Get the search element
+      // Get the search element
+      const searchFormEl = document.getElementById("search-form");
 
-      // TODO: Hides the search
+      // Hides the search
+      toggleElementDisplay(searchFormEl);
 
       // Get Pokemon Card
       const pokemonCardEl = document.getElementById("pokemon-card");
@@ -39,9 +41,8 @@ function searchPokemon() {
       // TODO: Append Pokemon Info Wrapper to Pokemon Card
       pokemonCardEl.appendChild(pokemonInfoWrapperEl);
 
-      // TODO: Create a button to reset the search
-
-      // TODO: Append button to Pokemon Card
+      // TODO: Create a button and append it to Pokemon Card. The button shows the search
+      showSearchButton(pokemonCardEl, searchFormEl);
     });
 }
 
@@ -106,4 +107,23 @@ function displayPokemonTypes(parent, data) {
   pokemonTypesEl.textContent = data.types.map((type) => type.type.name).join(", ");
   // Appen Pokemon Image to Pokemon Card
   parent.appendChild(pokemonTypesEl);
+}
+
+function showSearchButton(parent, searchFormEl) {
+  // Create Button
+  const buttonEl = document.createElement("button");
+  // Add button text
+  buttonEl.textContent = "Search Another Pokemon";
+
+  // Show the searchbar when clicked
+  buttonEl.addEventListener("click", () => {
+    toggleElementDisplay(searchFormEl);
+  });
+
+  // Appen button to Pokemon Card
+  parent.appendChild(buttonEl);
+}
+
+function toggleElementDisplay(element) {
+  element.classList.toggle("hidden");
 }
