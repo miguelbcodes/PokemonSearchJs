@@ -67,7 +67,7 @@ function searchPokemon() {
       // Create Buttons Wrapper
       const buttonsWrapperEl = document.createElement("div");
       // Add Buttons Wrapper styles
-      buttonsWrapperEl.classList.add("w-96", "flex", "gap-4", "items-center", "justify-center");
+      buttonsWrapperEl.classList.add("w-128", "grid", "grid-cols-2", "gap-4", "items-center", "justify-center");
 
       // Create a button and append it to Buttons Wrapper. The button shows the search
       showSearchButton(buttonsWrapperEl, searchFormEl, randomPokemonButtonEl);
@@ -326,7 +326,7 @@ randomPokemonButtonEl.onclick = () => {
       // Create Buttons Wrapper
       const buttonsWrapperEl = document.createElement("div");
       // Add Buttons Wrapper styles
-      buttonsWrapperEl.classList.add("w-96", "flex", "gap-4", "items-center", "justify-center");
+      buttonsWrapperEl.classList.add("w-128", "grid", "grid-cols-2", "gap-4", "items-center", "justify-center");
 
       // Create a button and append it to Buttons Wrapper. The button shows the search
       showSearchButton(buttonsWrapperEl, searchFormEl, randomPokemonButtonEl);
