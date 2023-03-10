@@ -113,7 +113,7 @@ function displayPokemonHeight(parent, data) {
   // Create Pokemon Height
   const pokemonHeightEl = document.createElement("p");
   // Add Pokemon Height text
-  pokemonHeightEl.textContent = data.height;
+  pokemonHeightEl.textContent = `Height: ${data.height * 10}cm`;
   // Add Pokemon Height styles
   pokemonHeightEl.classList.add("text-base", "text-slate-50");
   // Appen Pokemon Image to Pokemon Section
@@ -124,7 +124,7 @@ function displayPokemonWeight(parent, data) {
   // Create Pokemon Weight
   const pokemonWeightEl = document.createElement("p");
   // Add Pokemon Weight text
-  pokemonWeightEl.textContent = data.weight;
+  pokemonWeightEl.textContent = `Weight: ${data.weight / 10}kg`;
   // Add Pokemon Height styles
   pokemonWeightEl.classList.add("text-base", "text-slate-50");
   // Appen Pokemon Image to Pokemon Section
