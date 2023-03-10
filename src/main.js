@@ -239,3 +239,79 @@ function displayErrorMessage(parent) {
   errorMessageImageEl.classList.add("h-8", "order-first");
   parent.appendChild(errorMessageImageEl);
 }
+
+function randomPokemon() {
+  return Math.floor(Math.random() * 1001);
+}
+
+// Get Random Pokemon Button
+const randomPokemonButtonEl = document.getElementById("random-pokemon");
+
+randomPokemonButtonEl.onclick = () => {
+  // Generate a random pokemon
+  const randomValue = randomPokemon();
+  console.log(randomValue);
+  const url = `https://pokeapi.co/api/v2/pokemon/${randomValue}`;
+
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      // Get the search element
+      const searchFormEl = document.getElementById("search-form");
+
+      // Hides the search
+      searchFormEl.classList.add("hidden");
+
+      // Get Pokemon Section
+      const pokemonSectionEl = document.getElementById("pokemon-section");
+      // Add Pokemon Section styles
+      pokemonSectionEl.classList.add("flex", "flex-col", "items-center", "mt-8", "gap-8");
+
+      // Clear the current Pokemon searched, if it exists
+      removeAllChildNodes(pokemonSectionEl);
+
+      // Create Pokemon Card
+      const pokemonCardEl = document.createElement("article");
+      // Add Pokemon Card styles
+      pokemonCardEl.classList.add(
+        "w-96",
+        "flex",
+        "gap-4",
+        "p-4",
+        "rounded-md",
+        "bg-blue-400",
+        "shadow-lg",
+        "shadow-blue-200"
+      );
+
+      // Create Pokemon Image Wrapper
+      const pokemonImageWrapperEl = document.createElement("div");
+      // Add Pokemon Image Wrapper styles
+      pokemonImageWrapperEl.classList.add("w-1/2", "bg-white", "rounded-lg");
+
+      // Append Pokemon Image to its wrapper
+      displayPokemonImage(pokemonImageWrapperEl, data);
+
+      // Append Pokemon Image Wrapper to Pokemon Card
+      pokemonCardEl.appendChild(pokemonImageWrapperEl);
+
+      // Create Pokemon Info Wrapper
+      const pokemonInfoWrapperEl = document.createElement("div");
+      // Add Pokemon Info Wrapper styles
+      pokemonInfoWrapperEl.classList.add("px-4", "py-2", "bg-blue-500", "grow", "rounded-lg", "space-y-2");
+
+      // Append Pokemon Info to its wrapper
+      displayPokemonInfo(pokemonInfoWrapperEl, data);
+
+      // Append Pokemon Info Wrapper to Pokemon Card
+      pokemonCardEl.appendChild(pokemonInfoWrapperEl);
+
+      // Append Pokemon Card to Pokemon Section
+      pokemonSectionEl.appendChild(pokemonCardEl);
+
+      // Create a button and append it to Pokemon Section. The button shows the search
+      showSearchButton(pokemonSectionEl, searchFormEl);
+    });
+};
