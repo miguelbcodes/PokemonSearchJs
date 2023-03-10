@@ -17,14 +17,11 @@ function searchPokemon() {
       // Hides the search
       toggleElementDisplay(searchFormEl);
 
-      // Get Pokemon Card
-      const pokemonCardEl = document.getElementById("pokemon-card");
-
-      // Show Pokemon Card
-      toggleElementDisplay(pokemonCardEl);
+      // Get Pokemon Section
+      const pokemonSectionEl = document.getElementById("pokemon-section");
 
       // Clear the current Pokemon searched, if it exists
-      removeAllChildNodes(pokemonCardEl);
+      removeAllChildNodes(pokemonSectionEl);
 
       // TODO: Create Pokemon Image Wrapper
       const pokemonImageWrapperEl = document.createElement("div");
@@ -32,8 +29,8 @@ function searchPokemon() {
       // TODO: Append Pokemon Image to its wrapper
       displayPokemonImage(pokemonImageWrapperEl, data);
 
-      // TODO: Append Pokemon Image Wrapper to Pokemon Card
-      pokemonCardEl.appendChild(pokemonImageWrapperEl);
+      // TODO: Append Pokemon Image Wrapper to Pokemon Section
+      pokemonSectionEl.appendChild(pokemonImageWrapperEl);
 
       // TODO: Create Pokemon Info Wrapper
       const pokemonInfoWrapperEl = document.createElement("div");
@@ -41,11 +38,11 @@ function searchPokemon() {
       // TODO: Append Pokemon Info to its wrapper
       displayPokemonInfo(pokemonInfoWrapperEl, data);
 
-      // TODO: Append Pokemon Info Wrapper to Pokemon Card
-      pokemonCardEl.appendChild(pokemonInfoWrapperEl);
+      // TODO: Append Pokemon Info Wrapper to Pokemon Section
+      pokemonSectionEl.appendChild(pokemonInfoWrapperEl);
 
-      // TODO: Create a button and append it to Pokemon Card. The button shows the search
-      showSearchButton(pokemonCardEl, searchFormEl);
+      // TODO: Create a button and append it to Pokemon Section. The button shows the search
+      showSearchButton(pokemonSectionEl, searchFormEl);
     });
 }
 
@@ -62,7 +59,7 @@ function displayPokemonImage(parent, data) {
   // Add Pokemon Image attributes
   pokemonImageEl.src = data.sprites.front_default;
   pokemonImageEl.alt = data.name;
-  // Appen Pokemon Image to Pokemon Card
+  // Appen Pokemon Image to Pokemon Section
   parent.appendChild(pokemonImageEl);
 }
 
@@ -81,7 +78,7 @@ function displayPokemonName(parent, data) {
   const pokemonNameEl = document.createElement("h2");
   // Add Pokemon Name text
   pokemonNameEl.textContent = data.name;
-  // Appen Pokemon Image to Pokemon Card
+  // Appen Pokemon Image to Pokemon Section
   parent.appendChild(pokemonNameEl);
 }
 
@@ -90,7 +87,7 @@ function displayPokemonHeight(parent, data) {
   const pokemonHeightEl = document.createElement("p");
   // Add Pokemon Height text
   pokemonHeightEl.textContent = data.height;
-  // Appen Pokemon Image to Pokemon Card
+  // Appen Pokemon Image to Pokemon Section
   parent.appendChild(pokemonHeightEl);
 }
 
@@ -99,7 +96,7 @@ function displayPokemonWeight(parent, data) {
   const pokemonWeightEl = document.createElement("p");
   // Add Pokemon Weight text
   pokemonWeightEl.textContent = data.weight;
-  // Appen Pokemon Image to Pokemon Card
+  // Appen Pokemon Image to Pokemon Section
   parent.appendChild(pokemonWeightEl);
 }
 
@@ -108,7 +105,7 @@ function displayPokemonTypes(parent, data) {
   const pokemonTypesEl = document.createElement("p");
   // Add Pokemon Image attributes
   pokemonTypesEl.textContent = data.types.map((type) => type.type.name).join(", ");
-  // Appen Pokemon Image to Pokemon Card
+  // Appen Pokemon Image to Pokemon Section
   parent.appendChild(pokemonTypesEl);
 }
 
@@ -121,12 +118,11 @@ function showSearchButton(parent, searchFormEl) {
   // Show the searchbar when clicked
   buttonEl.addEventListener("click", () => {
     toggleElementDisplay(searchFormEl);
-    // Delete the pokemon card
+    // Delete the Pokemon Section
     removeAllChildNodes(parent);
-    toggleElementDisplay(parent);
   });
 
-  // Appen button to Pokemon Card
+  // Appen button to Pokemon Section
   parent.appendChild(buttonEl);
 }
 
